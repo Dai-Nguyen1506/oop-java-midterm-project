@@ -6,6 +6,7 @@ public class Main {
 
         int[] arr = {10, 20, 30};
 
+        System.out.println("Using NumberArray:");
         MyCollection<Integer> collection = new NumberArray(arr);
         MyIterator<Integer> iterator = collection.createIterator();
 
