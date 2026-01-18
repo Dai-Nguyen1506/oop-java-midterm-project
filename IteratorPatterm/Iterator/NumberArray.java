@@ -1,11 +1,17 @@
 package IteratorPatterm.Iterator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NumberArray implements MyCollection<Integer> {
 
-    private int[] data;
+    private List<Integer> data;
 
-    public NumberArray(int[] data) {
-        this.data = data;
+    public NumberArray(int[] arr) {
+        this.data = new ArrayList<>();
+        for (int value : arr) {
+            this.data.add(value);
+        }
     }
 
     @Override
@@ -20,12 +26,17 @@ public class NumberArray implements MyCollection<Integer> {
 
         @Override
         public boolean hasNext() {
-            return index < data.length;
+            return index < data.size();
         }
 
         @Override
         public Integer next() {
-            return data[index++];
+            return data.get(index++);
+        }
+
+        @Override
+        public void add(Integer value) {
+            data.add(value);
         }
     }
 }

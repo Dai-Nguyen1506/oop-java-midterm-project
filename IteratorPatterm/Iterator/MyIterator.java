@@ -6,4 +6,5 @@ public interface MyIterator<T> {
     // Check if there are more elements to iterate over
     boolean hasNext();
     T next();
+    void add(T value);
 }
