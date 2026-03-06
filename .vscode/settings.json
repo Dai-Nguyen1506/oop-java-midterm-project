@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "CommandPattern",
+        "FactoryPattern",
+        "IteratorPattern"
+    ],
+    "java.project.outputPath": "bin",
+    "java.configuration.updateBuildConfiguration": "automatic"
+}
