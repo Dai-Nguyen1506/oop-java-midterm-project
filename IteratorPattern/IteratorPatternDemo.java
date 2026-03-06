@@ -3,7 +3,8 @@ import Iterator.MyCollections.LinkedList;
 import Iterator.MyObjects.BookInfo;
 import Iterator.MyCollections.BookCollection;
 
-public class Main {
+// Main Class for Iterator Pattern
+public class IteratorPatternDemo {
     public static void main(String[] args) {
         LinkedList<String> collection = new LinkedList<>();
         collection.add("Hello");
