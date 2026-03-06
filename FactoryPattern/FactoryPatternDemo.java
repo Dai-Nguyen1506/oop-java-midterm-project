@@ -1,67 +1,19 @@
-// Library classes
-abstract class Vehicle {
-    public abstract void printVehicle();
-}
-
-class TwoWheeler extends Vehicle {
-    public void printVehicle()
-    {
-        System.out.println("I am two wheeler");
-    }
-}
-
-class FourWheeler extends Vehicle {
-    public void printVehicle()
-    {
-        System.out.println("I am four wheeler");
-    }
-}
-
-// Factory Interface
-interface VehicleFactory {
-    Vehicle createVehicle();
-}
-
-// Concrete Factory for TwoWheeler
-class TwoWheelerFactory implements VehicleFactory {
-    public Vehicle createVehicle()
-    {
-        return new TwoWheeler();
-    }
-}
-
-// Concrete Factory for FourWheeler
-class FourWheelerFactory implements VehicleFactory {
-    public Vehicle createVehicle()
-    {
-        return new FourWheeler();
-    }
-}
-
-// Client class
-class Client {
-    private Vehicle pVehicle;
-
-    public Client(VehicleFactory factory)
-    {
-        pVehicle = factory.createVehicle();
-    }
-
-    public Vehicle getVehicle() { return pVehicle; }
-}
+import VehicleFactory.*;
+import VehicleFactory.Factories.*;
+import VehicleFactory.Vehicles.*;
 
 // Driver program
 public class FactoryPatternDemo {
     public static void main(String[] args)
     {
-        VehicleFactory twoWheelerFactory = new TwoWheelerFactory();
-        Client twoWheelerClient = new Client(twoWheelerFactory);
-        Vehicle twoWheeler = twoWheelerClient.getVehicle();
-        twoWheeler.printVehicle();
+        Factory MotoFactory = new MotobikeFactory();
+        Client MotoClient = new Client(MotoFactory);
+        Vehicle Moto = MotoClient.getVehicle();
+        Moto.printVehicle();
 
-        VehicleFactory fourWheelerFactory = new FourWheelerFactory();
-        Client fourWheelerClient = new Client(fourWheelerFactory);
-        Vehicle fourWheeler = fourWheelerClient.getVehicle();
-        fourWheeler.printVehicle();
+        Factory CarFactory = new CarFactory();
+        Client CarClient = new Client(CarFactory);
+        Vehicle Car = CarClient.getVehicle();
+        Car.printVehicle();
     }
 }
