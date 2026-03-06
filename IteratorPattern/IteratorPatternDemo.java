@@ -1,7 +1,6 @@
 import Iterator.Iterator;
-import Iterator.MyCollections.LinkedList;
-import Iterator.MyObjects.BookInfo;
-import Iterator.MyCollections.BookCollection;
+import Iterator.MyCollections.*;
+import Iterator.MyObjects.*;
 
 // Main Class for Iterator Pattern
 public class IteratorPatternDemo {
