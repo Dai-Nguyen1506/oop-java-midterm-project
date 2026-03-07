@@ -19,39 +19,39 @@ class FourWheelerNoFactory extends VehicleNoFactory {
 
 // Client (or user) class
 class ClientNoFactory {
-    private VehicleNoFactory pVehicle;
+    private VehicleNoFactory Vehicle;
 
     public ClientNoFactory(int type)
     {
         if (type == 1) {
-            pVehicle = new TwoWheelerNoFactory();
+            Vehicle = new TwoWheelerNoFactory();
         }
         else if (type == 2) {
-            pVehicle = new FourWheelerNoFactory();
+            Vehicle = new FourWheelerNoFactory();
         }
         else {
-            pVehicle = null;
+            Vehicle = null;
         }
     }
 
     public void cleanup()
     {
-        if (pVehicle != null) {
-            pVehicle = null;
+        if (Vehicle != null) {
+            Vehicle = null;
         }
     }
 
-    public VehicleNoFactory getVehicle() { return pVehicle; }
+    public VehicleNoFactory getVehicle() { return Vehicle; }
 }
 
 // Driver Code
 public class NoFactorPattern {
     public static void main(String[] args) {
-        ClientNoFactory pClient = new ClientNoFactory(1);
-        VehicleNoFactory pVehicle = pClient.getVehicle();
-        if (pVehicle != null) {
-            pVehicle.printVehicle();
+        ClientNoFactory Client = new ClientNoFactory(1);
+        VehicleNoFactory Vehicle = Client.getVehicle();
+        if (Vehicle != null) {
+            Vehicle.printVehicle();
         }
-        pClient.cleanup();
+        Client.cleanup();
     }
 }
