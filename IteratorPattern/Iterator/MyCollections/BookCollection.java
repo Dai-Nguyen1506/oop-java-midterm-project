@@ -3,37 +3,33 @@ import Iterator.Iterator;
 import Iterator.MyIterators.BookIterator;
 import Iterator.MyObjects.BookInfo;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class BookCollection<T> implements Collection<T> {
-    private BookInfo[] books;
-    private int size;
+public class BookCollection implements Collection<BookInfo> {
+    private List<BookInfo> books;
 
-    public BookCollection(int capacity) {
-        books = new BookInfo[capacity];
-        size = 0;
+    public BookCollection() {
+        books = new ArrayList<>();
     }
 
     @Override
-    public void add(T item) {
-        if (size < books.length) {
-            books[size++] = (BookInfo) item;
-        } else {
-            System.out.println("Collection is full. Cannot add more items.");
-        }
+    public Iterator<BookInfo> createIterator() {
+        return new BookIterator(books);
     }
 
-    @Override
-    public Iterator<T> createIterator() {
-        return new BookIterator<>(this);
+    public void add(BookInfo item) {
+        books.add(item);
     }
+
 
     public int size() {
-        return size;
+        return books.size();
     }
 
-    public T get(int i) {
-        if (i >= 0 && i < size) {
-            return (T) books[i];
+    public BookInfo get(int i) {
+        if (i >= 0 && i < size()) {
+            return books.get(i);
         }
         throw new IndexOutOfBoundsException("Index out of bounds: " + i);
     }

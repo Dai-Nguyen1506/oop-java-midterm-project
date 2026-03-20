@@ -11,8 +11,13 @@ public class LinkedList<T> implements Collection<T> {
         this.head = null;
     }
 
+    @Override
+    public Iterator<T> createIterator() {
+        return new LinkedListIterator<>(head);
+    }
+
     public void add(T data) {
-        Node<T> newNode = new Node<>(data);
+        Node<T> newNode = new Node<T>(data);
         if (head == null) {
             head = newNode;
         } else {
@@ -20,35 +25,7 @@ public class LinkedList<T> implements Collection<T> {
             while (current.getNext() != null) {
                 current = current.getNext();
             }
-            newNode.setPrevious(current);
             current.setNext(newNode);
         }
-    }
-
-    public void removeNode(Node<T> node) {
-        if (node == null) return;
-
-        Node<T> prevNode = node.getPrevious();
-        Node<T> nextNode = node.getNext();
-
-        // If removing head node
-        if (node == head) {
-            head = nextNode;
-            if (head != null) {
-                head.setPrevious(null);
-            }
-        } else {
-            // Not head node
-            if (prevNode != null) {
-                prevNode.setNext(nextNode);
-            }
-            if (nextNode != null) {
-                nextNode.setPrevious(prevNode);
-            }
-        }
-    }
-
-    public Iterator<T> createIterator() {
-        return new LinkedListIterator<>(head, this);
     }
 }

@@ -1,27 +1,29 @@
 package Iterator.MyIterators;
 
-import Iterator.Iterator;
-import Iterator.MyCollections.BookCollection;
+import java.util.List;
 
-public class BookIterator<T> implements Iterator<T> {
+import Iterator.Iterator;
+import Iterator.MyObjects.BookInfo;
+
+public class BookIterator implements Iterator<BookInfo> {
     
-    private BookCollection<T> collection;
+    private List<BookInfo> books;
     private int currentIndex;
 
-    public BookIterator(BookCollection<T> collection) {
-        this.collection = collection;
+    public BookIterator(List<BookInfo> books) {
+        this.books = books;
         this.currentIndex = 0;
     }
 
     @Override
     public boolean hasNext() {
-        return currentIndex < collection.size();
+        return currentIndex < books.size();
     }
 
     @Override
-    public T next() {
+    public BookInfo next() {
         if (hasNext()) {
-            return collection.get(currentIndex++);
+            return books.get(currentIndex++);
         }
         return null; // or throw an exception
     }
