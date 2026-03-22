@@ -14,7 +14,7 @@ public class BookCollection implements Collection<BookInfo> {
     }
 
     @Override
-    public Iterator<BookInfo> createIterator() {
+    public Iterator<BookInfo> iterator() {
         return new BookIterator(books);
     }
 

@@ -11,7 +11,7 @@ public class IteratorPatternDemo {
         collection.add("World");
         collection.add("Java");
 
-        Iterator<String> iterator = collection.createIterator();
+        Iterator<String> iterator = collection.iterator();
         while (iterator.hasNext()) {
             String item = iterator.next();
             System.out.println(item);
@@ -23,9 +23,13 @@ public class IteratorPatternDemo {
         bookCollection.add(new BookInfo("To Kill a Mockingbird", "Harper Lee", 1960));
         bookCollection.add(new BookInfo("1984", "George Orwell", 1949));
 
-        Iterator<BookInfo> bookIterator = bookCollection.createIterator();
+        Iterator<BookInfo> bookIterator = bookCollection.iterator();
         while (bookIterator.hasNext()) {
             System.out.println(bookIterator.next());
         }
+
+        // for (BookInfo book : bookCollection) {
+        //     System.out.println(book);
+        // }
     }
 }

@@ -22,9 +22,9 @@ public class BookIterator implements Iterator<BookInfo> {
 
     @Override
     public BookInfo next() {
-        if (hasNext()) {
-            return books.get(currentIndex++);
+        if (!hasNext()) {
+            throw new java.util.NoSuchElementException("No more elements");
         }
-        return null; // or throw an exception
+        return books.get(currentIndex++);
     }
 }

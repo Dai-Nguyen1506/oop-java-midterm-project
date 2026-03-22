@@ -118,12 +118,5 @@ public class NoIteratorPattern {
             System.out.println(current.getData());
             current = current.getNext();
         }
-
-        System.out.println("\n=== Problems without Iterator Pattern ===");
-        System.out.println("1. Client code is tightly coupled to collection's internal structure");
-        System.out.println("2. Different traversal logic for different collection types");
-        System.out.println("3. If collection structure changes, all client code must change");
-        System.out.println("4. Cannot easily switch between different collection implementations");
-        System.out.println("5. No uniform way to traverse different collections");
     }
 }

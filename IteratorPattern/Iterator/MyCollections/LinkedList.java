@@ -12,7 +12,7 @@ public class LinkedList<T> implements Collection<T> {
     }
 
     @Override
-    public Iterator<T> createIterator() {
+    public Iterator<T> iterator() {
         return new LinkedListIterator<>(head);
     }
 
